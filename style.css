@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Lora:ital@1&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7f4;
+    color: #3d4a3e;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ================= 1. BAGIAN PRANK ================= */
+.prank-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.prank-step {
+    display: none;
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(115, 158, 130, 0.15);
+    max-width: 400px;
+    width: 100%;
+    animation: popIn 0.4s ease-out forwards;
+}
+
+.prank-step.active {
+    display: block;
+}
+
+.prank-btn {
+    background-color: #8fb996;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 20px;
+    transition: 0.2s;
+    white-space: nowrap; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; 
+}
+
+.prank-btn:hover {
+    background-color: #739e82;
+}
+
+.btn-group-prank {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+    position: relative;
+    min-height: 60px;
+}
+
+.btn-runaway {
+    background-color: #e4becc;
+    color: #4a4a4a;
+    position: relative; 
+    z-index: 50;
+}
+
+#fakePassword {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: 2px solid #8fb996;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    text-align: center;
+}
+
+.loading-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #eaf0ea;
+    border-radius: 10px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.loading-fill {
+    height: 100%;
+    width: 0%;
+    background-color: #8fb996;
+    transition: width 0.3s ease;
+}
+
+#loadingText {
+    margin-top: 10px;
+    font-weight: 600;
+    color: #5c7a52;
+    font-size: 0.9rem;
+}
+
+/* ================= 2. BAGIAN UTAMA (UI BERSAMA) ================= */
+.container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+    z-index: 10;
+}
+
+.card {
+    background: #ffffff;
+    padding: 35px 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(115, 158, 130, 0.15);
+    text-align: center;
+    border-top: 4px solid #8fb996;
+}
+
+h1 { font-weight: 600; font-size: 1.8rem; margin-bottom: 5px; color: #5c7a52; }
+h2 { font-weight: 500; font-size: 1.3rem; margin-bottom: 15px; color: #5c7a52; }
+.subtitle { font-size: 0.95rem; color: #7a8c7b; margin-bottom: 10px; }
+
+.photo-container {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, #8fb996, #d4e0d2);
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+.floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #8fb996;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(143, 185, 150, 0.4);
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    z-index: 100;
+    transition: 0.3s;
+}
+
+.floating-btn:hover { background: #739e82; }
+
+/* ================= 3. FITUR KUNANG-KUNANG ================= */
+#firefliesContainer {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+.firefly {
+    position: absolute;
+    bottom: -20px;
+    background-color: #d4af37;
+    border-radius: 50%;
+    box-shadow: 0 0 8px 2px #d4af37;
+    animation: floatUpFirefly linear forwards;
+    opacity: 0;
+}
+
+/* ================= 4. FITUR PUISI (TYPEWRITER) ================= */
+.poem {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: #4a5c4b;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+#typewriterText {
+    min-height: 120px;
+    border-right: 2px solid #5c7a52;
+    animation: blinkCursor 0.7s infinite;
+}
+
+/* ================= 5. FITUR AMPLOP ================= */
+.envelope-wrapper {
+    width: 100%;
+    max-width: 280px;
+    height: 180px;
+    margin: 20px auto;
+    position: relative;
+    cursor: pointer;
+}
+.envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #8fb996;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.flap {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 60%;
+    background: #739e82;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 4;
+    border-radius: 8px 8px 0 0;
+}
+.envelope-front {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%; height: 70%;
+    background: #a3c9aa;
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 50% 30%, 0 0);
+    z-index: 3;
+    border-radius: 0 0 8px 8px;
+}
+.letter {
+    position: absolute;
+    top: 10%; left: 5%; width: 90%; height: 80%;
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    z-index: 2;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.85rem;
+    color: #4a5c4b;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.envelope-wrapper.open .flap { transform: rotateX(180deg); z-index: 1; }
+.envelope-wrapper.open .letter { transform: translateY(-60px); z-index: 4; }
+
+/* ================= 6. FITUR CAROUSEL FOTO ================= */
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    padding-bottom: 10px;
+    scrollbar-width: none;
+}
+.carousel::-webkit-scrollbar { display: none; }
+.carousel-item {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+    background: #fdfdfd;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(115, 158, 130, 0.1);
+}
+.carousel-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.carousel-item p {
+    font-size: 0.9rem;
+    color: #5c7a52;
+    font-style: italic;
+}
+
+/* ================= 7. FITUR GAME & HADIAH ================= */
+.game-area {
+    position: relative;
+    height: 150px;
+    background: #f4f7f4;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+#catchBtn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: left 0.3s ease, top 0.3s ease;
+}
+.hidden-gift {
+    display: none;
+    background: #eaf0ea;
+    border-top: 4px solid #d4af37;
+    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* ================= ANIMASI UMUM ================= */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+@keyframes popIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+@keyframes blinkCursor { 50% { border-color: transparent; } }
+@keyframes floatUpFirefly {
+    0% { transform: translateY(0) scale(0.5); opacity: 0; }
+    20% { opacity: 0.8; }
+    80% { opacity: 0.8; }
+    100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
+}

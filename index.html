@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ada Paket Buat Kamu! 📦</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="prankSection" class="prank-container">
+        <div id="step1" class="prank-step active">
+            <h2>Hai! Ada sesuatu buat kamu nih.</h2>
+            <p>Tapi buka sendiri ya, berani nggak?</p>
+            <button class="prank-btn" onclick="nextStep(1)">Berani dong!</button>
+        </div>
+
+        <div id="step2" class="prank-step">
+            <h2>Eits, tunggu dulu.</h2>
+            <p>Jawab jujur, hari ini kangen aku nggak?</p>
+            <div class="btn-group-prank">
+                <button class="prank-btn" onclick="nextStep(2)">Iya, kangen! 🙄</button>
+                <button class="prank-btn btn-runaway" id="btnRunaway">Nggak sama sekali</button>
+            </div>
+        </div>
+
+        <div id="step3" class="prank-step">
+            <h2>Verifikasi Keamanan 🔐</h2>
+            <p>Masukkan Password (Clue: Nama cowok paling manis yang ngirim link ini)</p>
+            <input type="text" id="fakePassword" placeholder="Ketik namanya...">
+            <button class="prank-btn" onclick="checkPassword()">Submit</button>
+        </div>
+
+        <div id="step4" class="prank-step">
+            <h2>Sabar ya, sedang memuat rasa cinta...</h2>
+            <div class="loading-bar">
+                <div class="loading-fill" id="loadingFill"></div>
+            </div>
+            <p id="loadingText">0%</p>
+        </div>
+
+        <div id="step5" class="prank-step">
+            <h2>Satu langkah lagi! 😡</h2>
+            <p>Gemboknya karatan nih, coba klik tombol di bawah 5 kali buat dobrak!</p>
+            <button class="prank-btn" id="spamBtn">Klik Aku! (5)</button>
+        </div>
+    </div>
+
+    <div id="mainSection" style="display: none;">
+        
+        <div id="firefliesContainer"></div>
+
+        <button id="musicBtn" class="floating-btn">🎵 Putar Lagu</button>
+        <audio id="bgMusic" loop>
+            <source src="source/love_song.mp3" type="audio/mpeg">
+        </audio>
+
+        <div class="container">
+            <section class="card fade-in">
+                <div class="photo-container">
+                    <img src="source/foto_dia.jpg" alt="Foto Kamu" class="profile-photo">
+                </div>
+                <h1>Hai, Cantik</h1>
+                <p class="subtitle">Akhirnya bisa masuk juga ya? 😂 Maaf bikin kesal.</p>
+            </section>
+
+            <section class="card fade-in" id="poemSection">
+                <h2>✨ Sebuah Puisi</h2>
+                <div class="poem">
+                    <p id="typewriterText"></p>
+                </div>
+            </section>
+
+            <section class="card fade-in">
+                <h2>💌 Surat Untukmu</h2>
+                <p class="subtitle">Klik amplopnya ya!</p>
+                <div class="envelope-wrapper" id="envelopeWrapper" onclick="openEnvelope()">
+                    <div class="envelope">
+                        <div class="flap"></div>
+                        <div class="letter">
+                            <p>Semoga hari-harimu selalu diwarnai hal-hal baik. Jangan lupa istirahat kalau capek ya. Terus jadi dirimu yang luar biasa! 🌿</p>
+                        </div>
+                        <div class="envelope-front"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card fade-in">
+                <h2>📸 Tentang Kamu</h2>
+                <div class="carousel">
+                    <div class="carousel-item">
+                        <img src="source/foto_dia.jpg" alt="Momen 1">
+                        <p>Suka banget pas kamu lagi senyum kayak gini.</p>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="source/foto_dia.jpg" alt="Momen 2">
+                        <p>Teman ngobrol paling asik dan nggak ngebosenin.</p>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="source/foto_dia.jpg" alt="Momen 3">
+                        <p>Selalu punya cara bikin hariku jadi lebih baik.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card fade-in" id="gameSection">
+                <h2>🎮 Secret Game</h2>
+                <p>Tangkap hati hijau ini 3 kali untuk membuka hadiah rahasiamu!</p>
+                <div class="game-area">
+                    <button id="catchBtn">💚</button>
+                </div>
+                <p id="scoreText">Tertangkap: 0/3</p>
+            </section>
+
+            <section class="card hidden-gift" id="giftSection">
+                <h2>🎁 Hadiah Untukmu</h2>
+                <div class="gift-content">
+                    <p>Selamat! Kamu berhasil! 🎉</p>
+                    <p>Ini ada voucher rahasia: <strong>"Satu Kali Traktir Kopi/Eskrim Kapan Saja"</strong>.</p>
+                    <p>Screenshot halaman ini dan tagih ke aku ya! 😉</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
